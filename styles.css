@@ -1,0 +1,680 @@
+/* Base Styles */
+@font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('fonts/AdobeGaramondPro-Regular.woff2') format('woff2'),
+         url('fonts/AdobeGaramondPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('fonts/AdobeGaramondPro-Bold.woff2') format('woff2'),
+         url('fonts/AdobeGaramondPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+:root {
+    --primary: #004D40;
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Adobe Garamond Pro', serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 77, 64, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+/* Nav Logo Styling */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo img {
+  height: 40px; /* Ukuran logo */
+  object-fit: contain; /* Logo tetap proporsional */
+}
+
+.nav-logo .logo-main {
+  margin-right: 10px; /* Spasi antara logo utama dan logo typo */
+}
+
+.nav-logo .logo-typo {
+  display: none; /* Sembunyikan logo typo secara default */
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background-color: var(--primary);
+    padding: 1rem;
+    display: none;
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.mobile-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('../images/cafe-background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/**/
+.slides {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+    }
+/**/
+
+.hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    z-index: 10;
+}
+
+.logo-container {
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 1rem;
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* tambahan native 1 */
+#home {
+        background-image: url('SELAK/BG/Cover Depan 1.jpg'); /* Path ke gambar background */
+        background-size: cover; /* Membuat background menyesuaikan ukuran elemen */
+        background-position: center; /* Menempatkan background di tengah */
+        background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+        height: 100vh; /* Membuat hero section setinggi viewport */
+        display: flex; /* Agar konten di dalam bisa diatur dengan flexbox */
+        justify-content: center; /* Menyusun konten secara horizontal di tengah */
+        align-items: center; /* Menyusun konten secara vertikal di tengah */
+        color: #fff; /* Warna teks agar kontras */
+        text-align: center; /* Pusatkan teks */
+    }
+
+#about {
+        background-image: url('SELAK/BG/BG ABOUT STORY.jpg'); /* Path ke gambar background */
+        background-size: cover; /* Membuat background menyesuaikan ukuran elemen */
+        background-position: center; /* Menempatkan background di tengah */
+        background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+        height: 100vh; /* Membuat hero section setinggi viewport */
+        display: flex; /* Agar konten di dalam bisa diatur dengan flexbox */
+        justify-content: center; /* Menyusun konten secara horizontal di tengah */
+        align-items: center; /* Menyusun konten secara vertikal di tengah */
+        color: #fff; /* Warna teks agar kontras */
+        text-align: center; /* Pusatkan teks */
+    }
+/*akhir native 1*/
+
+.operating-hours {
+    margin-bottom: 2rem;
+}
+
+.operating-hours p:first-child {
+    font-size: 1.25rem;
+}
+
+.operating-hours .hours {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.social-links {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* About Section */
+.about {
+    position: relative;
+    padding: 6rem 0;
+    background-image: url('../images/cafe-story-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.about-content {
+    position: relative;
+    display: grid;
+    gap: 2rem;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.story-text {
+    background-color: rgba(0, 77, 64, 0.8);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(8px);
+}
+
+/* Facilities Section */
+.facilities {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.facilities h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.facility {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.facility i {
+    font-size: 3rem;
+    color: var(--primary);
+}
+
+.facility-note {
+    text-align: center;
+    color: var(--gray);
+    margin-top: 2rem;
+    font-size: 0.875rem;
+}
+
+/* Gallery Section */
+
+.gallery {
+    padding: 4rem 0;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-header-logo {
+    display: contents;
+    align-items: center;
+    gap: 1rem;
+}
+
+/*
+.carousel {
+    position: relative;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.carousel-container {
+    overflow: hidden;
+}
+
+.carousel-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+*/
+
+/* General Carousel Styles */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  position: relative;
+  width: 100%;
+}
+
+/* Carousel container will position images without shifting layout */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: -2rem; /* Negative gap to make images overlap */
+  transition: transform 0.5s ease;
+  max-width: 100%;
+}
+
+/* General image styles */
+.carousel-container img {
+  width: 8rem;
+  height: 10rem;
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: transform 0.3s ease, z-index 0.3s ease, opacity 0.3s ease;
+  opacity: 0.6;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* Active image in the center will be scaled and prominent */
+.carousel-container img.active {
+  transform: scale(1.5);
+  opacity: 1;
+  z-index: 3;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Image to the left and right of active one will be slightly smaller */
+.carousel-container img.left,
+.carousel-container img.right {
+  transform: scale(1);
+  z-index: 2;
+  opacity: 0.9;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image farthest left and right will be the smallest */
+.carousel-container img.far-left,
+.carousel-container img.far-right {
+  transform: scale(0.8);
+  z-index: 1;
+  opacity: 0.6;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Menu Section */
+.menu {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.menu h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.menu-tabs {
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: none;
+    color: var(--gray);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.beverage-categories,
+.food-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary);
+    border-radius: 0.25rem;
+    background: none;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.coffee-types {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.type-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 0.25rem;
+    background: none;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.type-btn.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/**/
+.hidden {
+    display: none;
+}
+
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-item h3 {
+    color: var(--black);
+    margin-bottom: 0.25rem;
+}
+
+.menu-item p {
+    color: var(--gray);
+}
+
+/* Location Section */
+.location {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.location h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    margin-bottom: 2rem;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.address {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.train-schedule {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.schedule-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.schedule-header i {
+    font-size: 1.5rem;
+}
+
+.schedule-header h3 {
+    font-size: 1.25rem;
+}
+
+.schedule-times {
+    margin-bottom: 1rem;
+}
+
+.schedule-note {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer .social-links {
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .about-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facilities-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .logo-container {
+        width: 16rem;
+        height: 16rem;
+    }
+}
+
